@@ -27,7 +27,7 @@ const STATS = [
   { label: "Destinations Featured", value: "16+" },
   { label: "Provinces Covered", value: "12" },
   { label: "Tourism Categories", value: "3" },
-  { label: "Months of Local Expertise", value: "3+" },
+  { label: "Destination Goals", value: "50+" },
 ];
 
 const TIMELINE = [
