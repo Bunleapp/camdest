@@ -1,0 +1,23 @@
+[
+  {
+    "id": "eco-tourism",
+    "slug": "eco-tourism",
+    "name": "Eco Tourism",
+    "description": "Explore Cambodia's pristine nature — rainforests, rivers, islands, and wildlife sanctuaries.",
+    "icon": "leaf"
+  },
+  {
+    "id": "cultural-heritage",
+    "slug": "cultural-heritage",
+    "name": "Cultural & Heritage Tourism",
+    "description": "Discover the Khmer Empire's legacy through ancient temples, royal palaces, and living traditions.",
+    "icon": "temple"
+  },
+  {
+    "id": "dark-tourism",
+    "slug": "dark-tourism",
+    "name": "Dark Tourism",
+    "description": "Visit sites of remembrance from the Khmer Rouge era, preserved for reflection and education.",
+    "icon": "candle"
+  }
+]

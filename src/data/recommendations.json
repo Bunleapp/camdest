@@ -1,0 +1,92 @@
+[
+  {
+    "destinationId": "dest-001",
+    "tags": ["culture", "family", "couple", "solo"],
+    "budgetTier": "medium",
+    "reasons": ["Iconic UNESCO World Heritage Site", "Suitable for all traveler types", "Rich in Khmer history"]
+  },
+  {
+    "destinationId": "dest-009",
+    "tags": ["beach", "couple", "solo", "adventure"],
+    "budgetTier": "medium",
+    "reasons": ["Stunning white-sand beaches", "Great for relaxation or adventure activities", "Popular island getaway"]
+  },
+  {
+    "destinationId": "dest-016",
+    "tags": ["culture", "solo", "family"],
+    "budgetTier": "low",
+    "reasons": ["Important historical site", "Deepens understanding of Cambodia's past", "Low-cost educational visit"]
+  },
+  {
+    "destinationId": "dest-011",
+    "tags": ["adventure", "solo", "family"],
+    "budgetTier": "high",
+    "reasons": ["Immersive rainforest adventure", "Wildlife and river rafting", "Great for nature lovers"]
+  },
+  {
+    "destinationId": "dest-014",
+    "tags": ["family", "adventure", "couple"],
+    "budgetTier": "medium",
+    "reasons": ["Ethical wildlife encounter", "Highland scenery and waterfalls", "Memorable for families"]
+  },
+  {
+    "destinationId": "dest-012",
+    "tags": ["family", "culture", "couple"],
+    "budgetTier": "low",
+    "reasons": ["Unique floating village culture", "Great birdwatching opportunities", "Affordable half-day trip"]
+  },
+  {
+    "destinationId": "dest-017",
+    "tags": ["culture", "solo"],
+    "budgetTier": "low",
+    "reasons": ["Poignant memorial experience", "Complements Tuol Sleng visit", "Historical significance"]
+  },
+  {
+    "destinationId": "dest-010",
+    "tags": ["beach", "couple", "solo"],
+    "budgetTier": "medium",
+    "reasons": ["Secluded and peaceful beaches", "Ideal for couples seeking quiet", "Excellent snorkeling"]
+  },
+  {
+    "destinationId": "dest-007",
+    "tags": ["culture", "family", "solo"],
+    "budgetTier": "low",
+    "reasons": ["Living royal heritage site", "Central location in Phnom Penh", "Affordable entry fee"]
+  },
+  {
+    "destinationId": "dest-005",
+    "tags": ["culture", "couple", "solo"],
+    "budgetTier": "medium",
+    "reasons": ["Exquisite temple carvings", "Less crowded than main Angkor sites", "Great for photography"]
+  },
+  {
+    "destinationId": "dest-021",
+    "tags": ["family", "adventure", "culture"],
+    "budgetTier": "low",
+    "reasons": ["Fun and unique rural experience", "Affordable countryside adventure", "Good for families"]
+  },
+  {
+    "destinationId": "dest-013",
+    "tags": ["family", "adventure"],
+    "budgetTier": "low",
+    "reasons": ["Cool highland climate", "Easy hiking trails", "Budget-friendly day trip"]
+  },
+  {
+    "destinationId": "dest-004",
+    "tags": ["culture", "adventure", "solo"],
+    "budgetTier": "medium",
+    "reasons": ["Dramatic mountaintop setting", "Fewer tourists than Angkor", "Rewarding for history and hiking fans"]
+  },
+  {
+    "destinationId": "dest-018",
+    "tags": ["culture", "solo"],
+    "budgetTier": "low",
+    "reasons": ["Rare access to Khmer Rouge final stronghold", "In-depth historical context", "Off the beaten path"]
+  },
+  {
+    "destinationId": "dest-015",
+    "tags": ["adventure", "solo"],
+    "budgetTier": "high",
+    "reasons": ["Remote multi-day trekking", "High biodiversity", "For experienced adventurers"]
+  }
+]
