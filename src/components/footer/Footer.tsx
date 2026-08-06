@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAV_LINKS, SITE_DESCRIPTION, SITE_NAME, SOCIAL_LINKS } from "@/lib/constants";
+import SocialIcon from "@/components/ui/SocialIcon";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -74,9 +75,7 @@ export default function Footer() {
                     aria-label={social.label}
                     className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-primary transition-colors"
                   >
-                    <span className="text-xs font-semibold">
-                      {social.label.charAt(0)}
-                    </span>
+                    <SocialIcon name={social.icon} size={16} strokeWidth={2} />
                   </a>
                 </li>
               ))}
