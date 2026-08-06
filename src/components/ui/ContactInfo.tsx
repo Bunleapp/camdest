@@ -1,4 +1,5 @@
 import { SOCIAL_LINKS } from "@/lib/constants";
+import SocialIcon from "@/components/ui/SocialIcon";
 
 const CONTACT_DETAILS = [
   { label: "Address", value: "Russei Keo, Phnom Penh, Cambodia" },
@@ -35,7 +36,7 @@ export default function ContactInfo() {
                 aria-label={social.label}
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary-dark transition-colors hover:bg-primary-dark hover:text-white"
               >
-                <span className="text-xs font-semibold">{social.label.charAt(0)}</span>
+                <SocialIcon name={social.icon} size={16} strokeWidth={2} />
               </a>
             </li>
           ))}

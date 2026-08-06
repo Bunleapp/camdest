@@ -13,10 +13,10 @@ export const NAV_LINKS = [
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://www.instagram.com/bunleapp_/" },
-  { label: "Facebook", href: "https://www.facebook.com/pinbunleap/" },
-  { label: "Twitter", href: "https://x.com/bunleappp_/" },
-  { label: "YouTube", href: "https://www.youtube.com/@PinBunleap" },
+  { label: "Instagram", href: "https://www.instagram.com/bunleapp_/", icon: "instagram" },
+  { label: "Facebook", href: "https://www.facebook.com/pinbunleap/", icon: "facebook" },
+  { label: "Twitter", href: "https://x.com/bunleappp_/", icon: "twitter" },
+  { label: "YouTube", href: "https://www.youtube.com/@PinBunleap", icon: "youtube" },
 ] as const;
 
 /**
