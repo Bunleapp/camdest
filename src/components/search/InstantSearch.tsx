@@ -135,7 +135,7 @@ export default function InstantSearch({
                 href={`/destinations?q=${encodeURIComponent(query)}`}
                 className="mt-1 block rounded-xl p-2.5 text-center text-sm font-medium text-primary-dark hover:bg-primary/5"
               >
-                View all results →
+                View all results
               </Link>
             </>
           )}
