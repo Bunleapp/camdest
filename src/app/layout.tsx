@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import SiteLayout from "@/components/layout/SiteLayout";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
@@ -64,6 +65,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <SiteLayout>{children}</SiteLayout>
+        <SpeedInsights />
       </body>
     </html>
   );
