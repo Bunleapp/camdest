@@ -313,15 +313,15 @@
   {
     "id": "dest-011",
     "name": "Knang Kropher",
-    "province": "Siem Reap",
+    "province": "Kampong Speu",
     "category": "eco-tourism",
     "price": 20,
     "rating": 4.4,
     "description": "Southeast Asia's largest freshwater lake, home to floating villages, mangrove forests, and rich biodiversity.",
     "activities": [
-      "Boat Tour",
+      "Hiking",
       "Bird Watching",
-      "Village Visit"
+      "Watching sunset"
     ],
     "images": [
       "/EcoTourism/KnangKropher/img-6902.jpeg",
