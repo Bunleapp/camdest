@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SectionTitle from "@/components/ui/SectionTitle";
 import FadeIn from "@/components/ui/motion/FadeIn";
 import StaggerContainer, { StaggerItem } from "@/components/ui/motion/StaggerContainer";
@@ -35,7 +36,7 @@ const TIMELINE = [
 ];
 
 const TEAM = [
-  { name: "Bunleap Pin", role: "ITE's student" },
+  { name: "Bunleap Pin", role: "ITE's student", image: "/images/bunleappin.jpeg" },
 ];
 
 export default function AboutPage() {
@@ -111,9 +112,21 @@ export default function AboutPage() {
           {TEAM.map((member) => (
             <StaggerItem key={member.name}>
               <div className="rounded-2xl bg-white p-6 text-center shadow-sm ring-1 ring-black/5">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-lg font-semibold text-primary-dark">
-                  {member.name.charAt(0)}
-                </div>
+                {member.image ? (
+                  <div className="relative mx-auto h-16 w-16 overflow-hidden rounded-full ring-1 ring-black/5">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="64px"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-lg font-semibold text-primary-dark">
+                    {member.name.charAt(0)}
+                  </div>
+                )}
                 <p className="mt-3 font-semibold text-foreground">{member.name}</p>
                 <p className="text-sm text-muted">{member.role}</p>
               </div>
