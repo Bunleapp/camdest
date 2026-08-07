@@ -99,45 +99,46 @@ export default function InstantSearch({
       {showDropdown && (
         <div
           id="instant-search-results"
-          aria-live="polite"
-          className="absolute left-0 right-0 top-full z-30 mt-2 max-h-96 overflow-y-auto rounded-2xl bg-white p-2 shadow-xl ring-1 ring-black/5"
+          className="absolute left-0 right-0 top-full z-30 mt-2 flex max-h-[min(24rem,70vh)] flex-col overflow-hidden rounded-2xl bg-white shadow-xl ring-1 ring-black/5"
         >
-          {status === "loading" && (
-            <div className="flex flex-col gap-2 p-2">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="h-14 animate-pulse rounded-xl bg-black/5" />
-              ))}
-            </div>
-          )}
+          <div aria-live="polite" className="min-h-0 flex-1 overflow-y-auto p-2">
+            {status === "loading" && (
+              <div className="flex flex-col gap-2 p-2">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div key={i} className="h-14 animate-pulse rounded-xl bg-black/5" />
+                ))}
+              </div>
+            )}
 
-          {status === "success" && results.length === 0 && (
-            <p className="p-4 text-center text-sm text-muted">
-              No destinations found for &ldquo;{query}&rdquo;.
-            </p>
-          )}
+            {status === "success" && results.length === 0 && (
+              <p className="p-4 text-center text-sm text-muted">
+                No destinations found for &ldquo;{query}&rdquo;.
+              </p>
+            )}
 
-          {status === "error" && (
-            <p className="p-4 text-center text-sm text-red-600">
-              Something went wrong. Please try again.
-            </p>
-          )}
+            {status === "error" && (
+              <p className="p-4 text-center text-sm text-red-600">
+                Something went wrong. Please try again.
+              </p>
+            )}
 
-          {status === "success" && results.length > 0 && (
-            <>
-              {results.slice(0, 6).map((destination) => (
+            {status === "success" && results.length > 0 &&
+              results.slice(0, 6).map((destination) => (
                 <SearchResultItem
                   key={destination.id}
                   destination={destination}
                   onSelect={() => setIsFocused(false)}
                 />
               ))}
-              <Link
-                href={`/destinations?q=${encodeURIComponent(query)}`}
-                className="mt-1 block rounded-xl p-2.5 text-center text-sm font-medium text-primary-dark hover:bg-primary/5"
-              >
-                View all results
-              </Link>
-            </>
+          </div>
+
+          {status === "success" && results.length > 0 && (
+            <Link
+              href={`/destinations?q=${encodeURIComponent(query)}`}
+              className="block flex-shrink-0 border-t border-black/5 p-3 text-center text-sm font-medium text-primary-dark hover:bg-primary/5"
+            >
+              View all results
+            </Link>
           )}
         </div>
       )}

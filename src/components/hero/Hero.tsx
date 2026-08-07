@@ -16,8 +16,8 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative isolate overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+    <section className="relative isolate">
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
           src="/CulturalTourism/AngkorWat/cover.jpeg"
           alt={`Scenic landscape of ${COUNTRY_NAME}`}

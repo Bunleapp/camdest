@@ -1,6 +1,6 @@
 # Tourism Website — User Journey, User Flow, and Use Cases
 
-**Project:** Cambodia Wanderly  
+**Project:** CAMDEST
 **Documentation basis:** Current implemented source code and JSON data  
 **Application type:** Next.js App Router tourism website  
 **Primary actor:** Visitor  

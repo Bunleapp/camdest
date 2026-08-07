@@ -18,3 +18,6 @@ export default function ActivityList({ activities }: ActivityListProps) {
     </ul>
   );
 }
+
+// takes a list of word (activities) 
+// and display them beautifully as "pills" or tags on the screen
