@@ -111,7 +111,7 @@
     "province": "Preah Vihear",
     "category": "cultural-heritage",
     "price": 10,
-    "rating": 4.8,
+    "rating": 4,
     "description": "A stunning cliffside Khmer temple perched atop the Dângrêk Mountains, offering panoramic views of the Cambodian plains.",
     "activities": [
       "Hiking",
@@ -441,7 +441,7 @@
     "province": "Phnom Penh",
     "category": "dark-tourism",
     "price": 6,
-    "rating": 4.8,
+    "rating": 3.5,
     "description": "The most well-known of the killing fields used by the Khmer Rouge, now a memorial site with a stupa honoring the victims.",
     "activities": [
       "Guided Tour",
@@ -475,7 +475,7 @@
     "province": "Oddar Meanchey",
     "category": "dark-tourism",
     "price": 5,
-    "rating": 4.2,
+    "rating": 4,
     "description": "The last stronghold of the Khmer Rouge, including Pol Pot's cremation site and former military bases.",
     "activities": [
       "Historical Tour",

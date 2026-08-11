@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import SiteLayout from "@/components/layout/SiteLayout";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 // font loading (NExt.js downloads these fonts at build time and serves directly from server)
@@ -65,7 +64,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <SiteLayout>{children}</SiteLayout>
+        {children}
         <SpeedInsights />
         <Analytics />
       </body>
@@ -73,5 +72,8 @@ export default function RootLayout({
   );
 }
 
-// children prop represent specific page.tsx the user is currently visiting
-// <SiteLayout> contains nav bar and footer
+// children prop represents the active route segment's own layout+page.
+// The root layout only provides the <html>/<body> shell + fonts, so that
+// the public site (Navbar/Footer via (site)/layout.tsx) and the admin
+// dashboard (its own chrome via admin/layout.tsx) can render completely
+// different UI without either one leaking into the other.

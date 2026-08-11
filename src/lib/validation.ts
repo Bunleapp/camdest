@@ -73,3 +73,42 @@ export const contactFormSchema = z.object({
 });
 
 export type ContactFormInput = z.infer<typeof contactFormSchema>;
+
+export const adminLoginSchema = z.object({
+  email: z.string().trim().min(1, "Email is required").email("Enter a valid email address"),
+  password: z.string().min(1, "Password is required"),
+});
+
+export type AdminLoginInput = z.infer<typeof adminLoginSchema>;
+
+/**
+ * Admin destination form schema.
+ *
+ * Reuses the same field-level rules as `destinationInputSchema`
+ * (category enum, rating 0-5, nonnegative price, coordinates, etc.)
+ * but accepts array fields (activities, images, nearbyAttractions) as
+ * newline-separated text since the admin form uses plain textareas for
+ * these instead of a dynamic list-editor UI. The values are split into
+ * arrays before being sent to the existing POST/PUT APIs, which still
+ * validate the final array shape via destinationInputSchema /
+ * destinationUpdateSchema server-side — this form schema does not
+ * weaken that validation, it only adapts the input format.
+ */
+export const destinationFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  province: z.string().min(1, "Province is required"),
+  category: tourismCategorySchema,
+  price: z.coerce.number().nonnegative("Price must be 0 or greater"),
+  rating: z.coerce.number().min(0, "Rating must be between 0 and 5").max(5, "Rating must be between 0 and 5"),
+  description: z.string().min(1, "Description is required"),
+  activitiesText: z.string().optional(),
+  imagesText: z.string().optional(),
+  nearbyAttractionsText: z.string().optional(),
+  latitude: z.coerce.number().min(-90).max(90),
+  longitude: z.coerce.number().min(-180).max(180),
+  openingHours: z.string().min(1, "Opening hours are required"),
+  familyFriendly: z.boolean().default(false),
+  popularity: z.coerce.number().min(0).max(100).default(0),
+});
+
+export type DestinationFormInput = z.infer<typeof destinationFormSchema>;

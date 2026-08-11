@@ -5,10 +5,11 @@ import {
   getAllDestinations,
 } from "@/lib/destinations-repository";
 import { destinationInputSchema } from "@/lib/validation";
+import { requireAdmin } from "@/lib/auth/require-admin";
 
 /**
  * GET /api/destinations
- * Returns all destinations.
+ * Returns all destinations. Public — no authentication required.
  */
 export async function GET() {
   try {
@@ -21,9 +22,19 @@ export async function GET() {
 
 /**
  * POST /api/destinations
- * Creates a new destination.
+ * Creates a new destination. Admin-only.
+ *
+ * Authorization is verified here independently of the /admin route
+ * middleware — a request that reaches this handler directly (e.g. via
+ * curl/Postman) without a valid admin session is rejected with 401,
+ * regardless of what the frontend UI does or doesn't show.
  */
 export async function POST(request: NextRequest) {
+  const session = await requireAdmin(request);
+  if (!session) {
+    return apiError("Authentication required.", 401);
+  }
+
   try {
     const body = await request.json();
     const parsed = destinationInputSchema.safeParse(body);

@@ -6,6 +6,7 @@ import {
   updateDestination,
 } from "@/lib/destinations-repository";
 import { destinationUpdateSchema } from "@/lib/validation";
+import { requireAdmin } from "@/lib/auth/require-admin";
 
 interface RouteParams {
   params: Promise<{ id: string }>;
@@ -13,7 +14,7 @@ interface RouteParams {
 
 /**
  * GET /api/destinations/[id]
- * Returns a single destination by ID.
+ * Returns a single destination by ID. Public — no authentication required.
  */
 export async function GET(_request: NextRequest, { params }: RouteParams) {
   const { id } = await params;
@@ -28,9 +29,20 @@ export async function GET(_request: NextRequest, { params }: RouteParams) {
 
 /**
  * PUT /api/destinations/[id]
- * Updates an existing destination.
+ * Updates an existing destination. Admin-only.
+ *
+ * Order of checks: authentication -> authorization -> input validation
+ * -> ID validation/existence -> mutation. This mirrors the "defense in
+ * depth" requirement — this check is independent of the /admin route
+ * middleware and runs even if the request comes directly from
+ * curl/Postman.
  */
 export async function PUT(request: NextRequest, { params }: RouteParams) {
+  const session = await requireAdmin(request);
+  if (!session) {
+    return apiError("Authentication required.", 401);
+  }
+
   const { id } = await params;
 
   try {
@@ -55,15 +67,28 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
 
 /**
  * DELETE /api/destinations/[id]
- * Deletes a destination.
+ * Deletes a destination. Admin-only.
+ *
+ * The frontend confirmation dialog is a UX nicety only — this server
+ * check is what actually prevents unauthorized deletion.
  */
-export async function DELETE(_request: NextRequest, { params }: RouteParams) {
-  const { id } = await params;
-  const deleted = await deleteDestination(id);
-
-  if (!deleted) {
-    return apiError("Destination not found", 404);
+export async function DELETE(request: NextRequest, { params }: RouteParams) {
+  const session = await requireAdmin(request);
+  if (!session) {
+    return apiError("Authentication required.", 401);
   }
 
-  return apiSuccess({ id, deleted: true });
+  const { id } = await params;
+
+  try {
+    const deleted = await deleteDestination(id);
+
+    if (!deleted) {
+      return apiError("Destination not found", 404);
+    }
+
+    return apiSuccess({ id, deleted: true });
+  } catch {
+    return apiError("Failed to delete destination", 500);
+  }
 }
